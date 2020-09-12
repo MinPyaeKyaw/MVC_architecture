@@ -29,7 +29,7 @@ class Security {
 	----
 	Getting File Extension
 	*/
-	static private function getExtension($filename) {
+	static public function getExtension($filename) {
 		$filename = strtoupper($filename);
 		return pathinfo($filename, PATHINFO_EXTENSION);
 	}
@@ -38,7 +38,7 @@ class Security {
 	----
 	Getting Filename
 	*/
-	static private function getBasename($filename) {
+	static public function getBasename($filename) {
 		$filename  = strtolower($filename);
 		$extension = self::getExtension($filename);
 		return basename($filename, $extension);
