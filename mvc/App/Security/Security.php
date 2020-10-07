@@ -221,36 +221,6 @@ class Security {
 	
 
 
-
-
-	/*-
-	----
-	Hashing Password with Salt
-	*/
-	static public function passwordHash($password) {
-		$salt     = md5(self::token());
-		$password = password_hash($password.$salt, PASSWORD_DEFAULT);
-
-		return $result = array($salt, $password);
-	}
-
-
-	/*-
-	----
-	Verifying Password
-	*/
-	static public function passwordVerify($password,$db_password,$salt) {
-		$salted_password = $password.$salt;
-		if(password_verify($salted_password, $db_password)) {
-			return true;
-		}else{
-			return false;
-		}
-
-	}
-	// End of checking password length
-
-
 }
 //End of Security Class
 
